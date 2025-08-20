@@ -12,6 +12,7 @@ permissions:
 jobs:
   terraform_plan:
     runs-on: ubuntu-latest
+    env: GITPAT_SECRET=${{ secrets.GITPAT_SECRET_TOKEN }}
 
     steps:
       - name: Checkout the repository
@@ -47,6 +48,7 @@ jobs:
   terraform_apply:
     runs-on: ubuntu-latest
     needs: terraform_plan
+    env: GITPAT_SECRET=${{ secrets.GITPAT_SECRET_TOKEN }}
     environment: prd
     permissions:
       contents: "read"
@@ -58,8 +60,8 @@ jobs:
       - name: Authenticate github with GCP
         uses: google-github-actions/auth@v2.0.0
         with:
-          workload_identity_provider: "projects/385244489116/locations/global/workloadIdentityPools/tf-gh-action/providers/github"
-          service_account: "terraform-demo@stunning-ruler-469007-u5.iam.gserviceaccount.com"
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT }}
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
@@ -73,4 +75,4 @@ jobs:
         run: |
           terraform plan -input=false
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -input=false
