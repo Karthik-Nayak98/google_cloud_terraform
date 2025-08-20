@@ -38,10 +38,10 @@ jobs:
 
       - name: Terraform Init
         run: |
-          terraform init --no-color
+          terraform init -no-color
 
       - name: Terraform Validate
-        run: terraform validate --no-color
+        run: terraform validate -no-color
 
       - name: Terraform Plan
         run: |
