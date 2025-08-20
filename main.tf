@@ -9,7 +9,7 @@ module "gcp_cicd" {
   app_installation_id   = var.app_installation_id
 }
 
-module "gcp_cicd" {
+module "permissions" {
   source       = "./modules/permissions"
   project_name = var.project_name
   region       = var.region
