@@ -29,8 +29,9 @@ variable "app_installation_id" {
   description = "Id for the cloud build trigger app in github"
 }
 
-variable "gcp_services" {
-  type        = set(string)
-  description = "List of services that needs to be enabled"
+variable "gcp_enabled_apis" {
+  type        = any
+  description = "List of enabled GCP APIs"
+
 }
 

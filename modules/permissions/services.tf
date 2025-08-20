@@ -1,5 +1,5 @@
-resource "google_project_service" "gcp_service" {
+resource "google_project_service" "gcp_services" {
   project  = var.project_name
-  for_each = string(var.gcp_service)
+  for_each = var.gcp_services
   service  = each.key
 }

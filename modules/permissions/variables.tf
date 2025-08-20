@@ -8,6 +8,11 @@ variable "region" {
   description = "Region of the project"
 }
 
+variable "gcp_services" {
+  type        = set(string)
+  description = "List of services that needs to be enabled"
+}
+
 
 
 

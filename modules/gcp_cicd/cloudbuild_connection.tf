@@ -1,4 +1,4 @@
-resource "google_secret_manager_secret" "github-token-secret" {
+resource "google_secret_manager_secret" "github_token_secret" {
   project   = var.project_name
   secret_id = "github-token-secret"
 
@@ -25,7 +25,7 @@ resource "google_secret_manager_secret_version" "github_token_secret_version" {
 #   policy_data = data.google_iam_policy.p4sa-secretAccessor.policy_data
 # }
 
-resource "google_cloudbuildv2_connection" "my_connection" {
+resource "google_cloudbuildv2_connection" "github_repo_connection" {
   project  = var.project_name
   location = var.region
   name     = "github-connection-gen2"
@@ -36,5 +36,5 @@ resource "google_cloudbuildv2_connection" "my_connection" {
       oauth_token_secret_version = google_secret_manager_secret_version.github_token_secret_version.id
     }
   }
-  depends_on = [google_secret_manager_secret_iam_policy.policy]
+  # depends_on = [google_secret_manager_secret_iam_policy.policy]
 }
