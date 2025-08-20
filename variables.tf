@@ -28,6 +28,12 @@ variable "gitpat_secret" {
   sensitive   = true
 }
 
+variable "app_installation_id" {
+  type        = number
+  description = "Id for the cloud build trigger app in github"
+  default     = 81934858
+}
+
 variable "gcp_services" {
   type        = set(string)
   description = "List of services that needs to be enabled"
