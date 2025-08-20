@@ -12,7 +12,8 @@ permissions:
 jobs:
   terraform_plan:
     runs-on: ubuntu-latest
-    env: GITPAT_SECRET=${{ secrets.GITPAT_SECRET_TOKEN }}
+    env:
+      GITPAT_SECRET: ${{ secrets.GITPAT_SECRET_TOKEN }}
 
     steps:
       - name: Checkout the repository
@@ -48,7 +49,8 @@ jobs:
   terraform_apply:
     runs-on: ubuntu-latest
     needs: terraform_plan
-    env: GITPAT_SECRET=${{ secrets.GITPAT_SECRET_TOKEN }}
+    env:
+      GITPAT_SECRET: ${{ secrets.GITPAT_SECRET_TOKEN }}
     environment: prd
     permissions:
       contents: "read"
