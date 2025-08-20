@@ -1,25 +1,21 @@
 variable "project_name" {
   type        = string
-  default     = "gcp-terraform-demo"
-  description = "Name of the GCP project"
+  description = "Name of the project"
 }
 
 variable "region" {
   type        = string
-  default     = "us-central1"
-  description = "Region for the project"
+  description = "Region of the project"
 }
 
 variable "github_repository" {
   type        = string
   description = "Name of the github repository to clone"
-  default     = "frontend-backend-devops"
 }
 
 variable "github_repository_url" {
   type        = string
   description = "URL of the github repository to clone"
-  default     = "https://github.com/Karthik-Nayak98/frontend-backend-devops.git"
 }
 
 variable "gitpat_secret" {
@@ -31,5 +27,5 @@ variable "gitpat_secret" {
 variable "gcp_services" {
   type        = set(string)
   description = "List of services that needs to be enabled"
-  default     = ["artifactregistry.googleapis.com", "storage.googleapis.com", "sourcerepo.googleapis.com", "appengine.googleapis.com", "cloudbuild.googleapis.com"]
 }
+
