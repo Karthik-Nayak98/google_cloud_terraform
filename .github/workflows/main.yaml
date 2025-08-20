@@ -20,8 +20,8 @@ jobs:
       - name: Authenticate github with GCP
         uses: google-github-actions/auth@v2.0.0
         with:
-          workload_identity_provider: "projects/385244489116/locations/global/workloadIdentityPools/tf-gh-action/providers/github"
-          service_account: "terraform-demo@stunning-ruler-469007-u5.iam.gserviceaccount.com"
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT }}
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
