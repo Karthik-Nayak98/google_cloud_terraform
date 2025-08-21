@@ -1,6 +1,6 @@
 variable "project_name" {
   type        = string
-  default     = "gcp-terraform-demo"
+  default     = "devops-gcp-tf"
   description = "Name of the GCP project"
 }
 
