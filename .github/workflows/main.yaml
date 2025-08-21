@@ -44,7 +44,12 @@ jobs:
 
       - name: Terraform Plan
         run: |
-          terraform plan -input=false
+          terraform plan -input=false -out='terraform-plan.log'
+      - name: Upload Terraform Log Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: terraform-logs
+          path: terraform-plan.log
 
   terraform_apply:
     runs-on: ubuntu-latest
