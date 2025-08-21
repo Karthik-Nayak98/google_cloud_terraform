@@ -1,6 +1,6 @@
 module "projects_iam_bindings" {
-  source  = "terraform-google-modules/iam/google/modules/projects_iam"
-  version = ">= 6.4"
+  source  = "terraform-google-modules/iam/google//modules/projects_iam"
+  version = "~> 8.0"
 
   projects = [var.project_name]
   mode     = "authoritative"
