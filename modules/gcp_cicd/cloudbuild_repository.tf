@@ -1,5 +1,5 @@
 
-resource "google_cloudbuildv2_repository" "my-repository" {
+resource "google_cloudbuildv2_repository" "github_devops_repo" {
   project           = var.project_name
   location          = "us-central1"
   name              = var.github_repository
