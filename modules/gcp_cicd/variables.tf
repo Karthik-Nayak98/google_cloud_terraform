@@ -35,3 +35,8 @@ variable "gcp_enabled_apis" {
 
 }
 
+variable "cloudbuild_sa" {
+  type        = string
+  description = "Cloud build service account"
+}
+

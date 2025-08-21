@@ -13,5 +13,6 @@ module "gcp_cicd" {
   github_repository_url = var.github_repository_url
   app_installation_id   = var.app_installation_id
   gcp_enabled_apis      = module.permissions.gcp_enabled_apis
+  cloudbuild_sa         = module.permissions.cloudbuild_sa
 }
 
