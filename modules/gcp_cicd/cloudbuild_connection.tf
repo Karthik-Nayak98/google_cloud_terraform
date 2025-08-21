@@ -5,6 +5,7 @@ resource "google_secret_manager_secret" "github_token_secret" {
   replication {
     auto {}
   }
+  depends_on = [var.gcp_enabled_apis]
 }
 
 resource "google_secret_manager_secret_version" "github_token_secret_version" {
