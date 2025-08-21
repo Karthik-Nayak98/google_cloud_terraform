@@ -32,7 +32,6 @@ variable "app_installation_id" {
 variable "gcp_enabled_apis" {
   type        = any
   description = "List of enabled GCP APIs"
-
 }
 
 variable "cloudbuild_sa" {

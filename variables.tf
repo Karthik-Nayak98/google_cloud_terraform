@@ -40,7 +40,7 @@ variable "gcp_services" {
   default     = ["artifactregistry.googleapis.com", "storage.googleapis.com", "sourcerepo.googleapis.com", "appengine.googleapis.com", "cloudbuild.googleapis.com"]
 }
 
-variable "cloudbuild_sa" {
-  type        = string
-  description = "Cloudbuild service account"
-}
+# variable "cloudbuild_sa" {
+#   type        = string
+#   description = "Cloudbuild service account"
+# }
