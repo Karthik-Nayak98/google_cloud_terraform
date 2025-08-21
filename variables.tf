@@ -39,3 +39,8 @@ variable "gcp_services" {
   description = "List of services that needs to be enabled"
   default     = ["artifactregistry.googleapis.com", "storage.googleapis.com", "sourcerepo.googleapis.com", "appengine.googleapis.com", "cloudbuild.googleapis.com"]
 }
+
+variable "cloudbuild_sa" {
+  type        = string
+  description = "Cloudbuild service account"
+}
