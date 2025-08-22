@@ -1,5 +1,6 @@
-resource "google_project_service" "gcp_services" {
-  project  = var.project_name
-  for_each = var.gcp_services
-  service  = each.key
+module "project-services" {
+  source        = "terraform-google-modules/project-factory/google//modules/project_services"
+  version       = "~> 18.0"
+  project_id    = var.project_name
+  activate_apis = var.gcp_services
 }
