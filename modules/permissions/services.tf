@@ -1,6 +1,7 @@
 resource "google_project_service" "project_services" {
   project                    = var.project_name
-  service                    = toset(var.gcp_services)
+  for_each                   = toset(var.gcp_services)
+  service = each.value
   disable_dependent_services = true
   disable_on_destroy         = true
 }
