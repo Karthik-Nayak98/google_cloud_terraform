@@ -9,7 +9,7 @@ variable "region" {
 }
 
 variable "gcp_services" {
-  type        = set(string)
+  type        = list(string)
   description = "List of services that needs to be enabled"
 }
 
