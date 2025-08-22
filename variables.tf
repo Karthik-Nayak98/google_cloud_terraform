@@ -37,7 +37,9 @@ variable "app_installation_id" {
 variable "gcp_services" {
   type        = list(string)
   description = "List of services that needs to be enabled"
-  default = ["artifactregistry.googleapis.com",
+  default = [
+    "serviceusage.googleapis.com",
+    "artifactregistry.googleapis.com",
     "cloudapis.googleapis.com",
     "storage.googleapis.com",
     "sourcerepo.googleapis.com",
