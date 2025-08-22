@@ -13,6 +13,12 @@ variable "github_repository" {
   description = "Name of the github repository to clone"
 }
 
+variable "github_owner" {
+  type        = string
+  description = "Owner of the github repository"
+  default     = "Karthik-Nayak98"
+}
+
 variable "github_repository_url" {
   type        = string
   description = "URL of the github repository to clone"
