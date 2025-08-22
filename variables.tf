@@ -38,6 +38,8 @@ variable "gcp_services" {
   type        = list(string)
   description = "List of services that needs to be enabled"
   default = [
+    "serviceusage.googleapis.com",
+    "cloudapis.googleapis.com",
     "storage.googleapis.com",
     "artifactregistry.googleapis.com",
     "sourcerepo.googleapis.com",
