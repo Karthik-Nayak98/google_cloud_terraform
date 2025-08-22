@@ -3,5 +3,5 @@ resource "google_service_account" "cloudbuild_service_account" {
   account_id                   = "cloudbuild-sa"
   display_name                 = "Service account used for cloudbuild repository activities"
   create_ignore_already_exists = true
-  depends_on                   = [google_project_service.gcp_services]
+  depends_on                   = [module.project-services]
 }
