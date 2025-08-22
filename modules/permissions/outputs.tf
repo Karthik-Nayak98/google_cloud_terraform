@@ -1,6 +1,6 @@
 output "gcp_enabled_apis" {
   description = "The status of each enabled GCP API."
-  value       = module.project-services
+  value       = google_project_service.project_services
 }
 
 
