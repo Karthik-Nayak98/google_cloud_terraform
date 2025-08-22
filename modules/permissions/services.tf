@@ -3,4 +3,5 @@ module "project-services" {
   version       = "~> 18.0"
   project_id    = var.project_name
   activate_apis = var.gcp_services
+  disable_dependent_services = true
 }
