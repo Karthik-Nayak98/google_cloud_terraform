@@ -16,6 +16,12 @@ variable "github_repository" {
   default     = "frontend-backend-devops"
 }
 
+variable "github_owner" {
+  type        = string
+  description = "Owner of the github repository"
+  default     = ""
+}
+
 variable "github_repository_url" {
   type        = string
   description = "URL of the github repository to clone"
@@ -42,9 +48,8 @@ variable "gcp_services" {
     "cloudapis.googleapis.com",
     "storage.googleapis.com",
     "artifactregistry.googleapis.com",
-    "sourcerepo.googleapis.com",
-    "appengine.googleapis.com",
     "cloudbuild.googleapis.com",
+    "appengine.googleapis.com",
   "secretmanager.googleapis.com"]
 }
 
