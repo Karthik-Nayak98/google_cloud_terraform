@@ -34,6 +34,11 @@ variable "gitpat_secret" {
   sensitive   = true
 }
 
+variable "terraform_service_account" {
+  type        = string
+  description = "Service account email to run terraform"
+  sensitive   = true
+}
 variable "app_installation_id" {
   type        = number
   description = "Id for the cloud build trigger app in github"

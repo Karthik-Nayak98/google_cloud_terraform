@@ -2,11 +2,12 @@ locals {
   project_number = data.google_project.project.number
 }
 module "permissions" {
-  source         = "./modules/permissions"
-  project_name   = var.project_name
-  region         = var.region
-  gcp_services   = var.gcp_services
-  project_number = local.project_number
+  source                    = "./modules/permissions"
+  project_name              = var.project_name
+  region                    = var.region
+  gcp_services              = var.gcp_services
+  project_number            = local.project_number
+  terraform_service_account = var.terraform_service_account
 }
 module "gcp_cicd" {
   source                = "./modules/gcp_cicd"

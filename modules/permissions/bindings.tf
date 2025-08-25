@@ -9,6 +9,7 @@ module "projects_iam_bindings" {
     "roles/cloudbuild.connectionAdmin" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
+      "serviceAccount:${var.terraform_service_account}",
     ],
     "roles/secretmanager.secretAccessor" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",

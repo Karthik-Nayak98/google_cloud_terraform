@@ -56,6 +56,7 @@ jobs:
     needs: terraform_plan
     env:
       TF_VAR_gitpat_secret: ${{ secrets.GITPAT_SECRET_TOKEN }}
+      TF_VAR_workload_service_account: ${{ secrets.SERVICE_ACCOUNT }}
     environment: prd
     permissions:
       contents: "read"
