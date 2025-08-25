@@ -3,6 +3,11 @@ output "gcp_enabled_apis" {
   value       = google_project_service.project_services
 }
 
+output "iam_binding" {
+  description = "IAM bindings applied to the project."
+  value       = module.projects_iam_bindings.bindings
+}
+
 
 output "cloudbuild_sa" {
   description = "Service account for the cloud build"
