@@ -5,7 +5,7 @@ output "gcp_enabled_apis" {
 
 output "iam_binding" {
   description = "IAM bindings applied to the project."
-  value       = module.projects_iam_bindings.bindings
+  value       = module.projects_iam_bindings
 }
 
 
