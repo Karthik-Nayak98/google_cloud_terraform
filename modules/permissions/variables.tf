@@ -13,6 +13,11 @@ variable "gcp_services" {
   description = "List of services that needs to be enabled"
 }
 
+variable "project_number" {
+  type        = string
+  description = "The project number of the GCP project"
+}
+
 
 
 

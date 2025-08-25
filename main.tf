@@ -1,8 +1,12 @@
+locals {
+  project_number = data.google_project.gcp-project.number
+}
 module "permissions" {
-  source       = "./modules/permissions"
-  project_name = var.project_name
-  region       = var.region
-  gcp_services = var.gcp_services
+  source         = "./modules/permissions"
+  project_name   = var.project_name
+  region         = var.region
+  gcp_services   = var.gcp_services
+  project_number = local.project_number
 }
 module "gcp_cicd" {
   source                = "./modules/gcp_cicd"
@@ -15,6 +19,6 @@ module "gcp_cicd" {
   app_installation_id   = var.app_installation_id
   gcp_enabled_apis      = module.permissions.gcp_enabled_apis
   cloudbuild_sa         = module.permissions.cloudbuild_sa
-  project_iam_bindings = module.permissions.iam_binding
+  project_iam_bindings  = module.permissions.iam_binding
 }
 
