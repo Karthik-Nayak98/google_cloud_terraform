@@ -11,7 +11,7 @@ module "projects_iam_bindings" {
     ],
     "roles/secretmanager.secretAccessor" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
-      "serviceAccount:service-${google_project.gcp-project.number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
+      "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
     ]
   }
 
