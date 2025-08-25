@@ -49,3 +49,8 @@ variable "project_iam_bindings" {
   type        = any
   description = "IAM bindings applied to the project"
 }
+
+variable "project_number" {
+  type        = string
+  description = "The project number of the GCP project"
+}
