@@ -6,7 +6,7 @@ module "projects_iam_bindings" {
   mode     = "authoritative"
 
   bindings = {
-    "roles/cloudbuild.connection" = [
+    "roles/cloudbuild.connectionAdmin" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}"
     ],
     "roles/secretmanager.secretAccessor" = [
