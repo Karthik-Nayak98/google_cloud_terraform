@@ -22,7 +22,6 @@ variable "project_number" {
 variable "terraform_service_account" {
   type        = string
   description = "Service account email to run terraform"
-  sensitive   = true
 }
 
 
