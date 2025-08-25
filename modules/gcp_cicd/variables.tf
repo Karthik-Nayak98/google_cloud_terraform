@@ -45,3 +45,7 @@ variable "cloudbuild_sa" {
   description = "Cloud build service account"
 }
 
+variable "project_iam_bindings" {
+  type        = any
+  description = "IAM bindings applied to the project"
+}

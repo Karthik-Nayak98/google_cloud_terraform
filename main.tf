@@ -15,5 +15,6 @@ module "gcp_cicd" {
   app_installation_id   = var.app_installation_id
   gcp_enabled_apis      = module.permissions.gcp_enabled_apis
   cloudbuild_sa         = module.permissions.cloudbuild_sa
+  project_iam_bindings = module.permissions.iam_binding
 }
 
