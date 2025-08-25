@@ -12,6 +12,9 @@ module "projects_iam_bindings" {
     "roles/secretmanager.secretAccessor" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}"
     ]
+    "roles/secretmanager.secretAccessor" = [
+      "serviceAccount:${google_service_account.cloudbuild_service_account.email}"
+    ]
   }
 
   depends_on = [google_service_account.cloudbuild_service_account]
