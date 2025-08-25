@@ -14,4 +14,6 @@ resource "google_cloudbuild_trigger" "ghe-trigger" {
   service_account = var.cloudbuild_sa
 
   filename = "cloudbuild.yaml"
+
+  depends_on = [var.project_iam_bindings]
 }
