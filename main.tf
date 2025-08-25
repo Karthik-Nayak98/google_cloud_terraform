@@ -1,5 +1,5 @@
 locals {
-  project_number = data.google_project.gcp-project.number
+  project_number = data.google_project.project.number
 }
 module "permissions" {
   source         = "./modules/permissions"
