@@ -31,7 +31,7 @@ variable "gitpat_secret" {
 }
 
 variable "app_installation_id" {
-  type        = number
+  type        = string
   description = "Id for the cloud build trigger app in github"
 }
 
