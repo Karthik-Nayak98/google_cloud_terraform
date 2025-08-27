@@ -13,6 +13,7 @@ resource "google_secret_manager_secret_version" "github_token_secret_version" {
   secret_data = var.gitpat_secret
 }
 
+
 # Define the IAM policy to allow Cloud Build's service account to access the secret
 data "google_iam_policy" "p4sa-secretAccessor" {
   binding {
@@ -23,6 +24,7 @@ data "google_iam_policy" "p4sa-secretAccessor" {
 
 # Attach the policy to the secret
 resource "google_secret_manager_secret_iam_policy" "policy" {
+  project     = google_secret_manager_secret.github_token_secret.project
   secret_id   = google_secret_manager_secret.github_token_secret.id
   policy_data = data.google_iam_policy.p4sa-secretAccessor.policy_data
 }
