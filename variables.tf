@@ -39,9 +39,9 @@ variable "terraform_service_account" {
   description = "Service account email to run terraform"
 }
 variable "app_installation_id" {
-  type        = number
+  type        = string
   description = "Id for the cloud build trigger app in github"
-  default     = 81934858
+  default     = "81934858"
 }
 
 variable "gcp_services" {
