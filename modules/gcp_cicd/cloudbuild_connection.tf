@@ -39,7 +39,7 @@ resource "google_cloudbuildv2_connection" "github_repo_connection" {
   github_config {
     # The GitHub App installation ID, obtained from your GitHub App settings.
     # This value is required to authenticate the Cloud Build connection to your GitHub repository.
-    app_installation_id = 0
+    # app_installation_id = 0
     authorizer_credential {
       oauth_token_secret_version = google_secret_manager_secret_version.github_token_secret_version.id
     }
