@@ -30,15 +30,13 @@ resource "google_secret_manager_secret_iam_policy" "policy" {
   policy_data = data.google_iam_policy.p4sa-secretAccessor.policy_data
 }
 
-resource "google_cloudbuildv2_connection" "github_repo_connection" {
-  provider = google-beta
-  project  = var.project_name
-  location = var.region
-  name     = "github-connection-gen2"
+resource "google_developer_connect_connection" "github_repo_connection" {
+  project = var.project_name
+  location = var.region 
+  connection_id = "github-developrer-connection"
 
   github_config {
-    # The GitHub App installation ID, obtained from your GitHub App settings.
-    # This value is required to authenticate the Cloud Build connection to your GitHub repository.
+    github_app = "DEVELOPER_CONNECT"
     app_installation_id = var.app_installation_id
     authorizer_credential {
       oauth_token_secret_version = google_secret_manager_secret_version.github_token_secret_version.id
@@ -47,3 +45,20 @@ resource "google_cloudbuildv2_connection" "github_repo_connection" {
 
   depends_on = [var.project_iam_bindings, google_secret_manager_secret_iam_policy.policy]
 }
+
+# resource "google_cloudbuildv2_connection" "github_repo_connection" {
+#   provider = google-beta
+#   project  = var.project_name
+#   location = var.region
+#   name     = "github-connection-gen2"
+
+#   github_config {
+#     # The GitHub App installation ID, obtained from your GitHub App settings.
+#     # This value is required to authenticate the Cloud Build connection to your GitHub repository.
+#     app_installation_id = var.app_installation_id
+#     authorizer_credential {
+#       oauth_token_secret_version = google_secret_manager_secret_version.github_token_secret_version.id
+#     }
+#   }
+
+# }
