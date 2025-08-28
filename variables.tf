@@ -53,6 +53,7 @@ variable "gcp_services" {
     "storage.googleapis.com",
     "artifactregistry.googleapis.com",
     "cloudbuild.googleapis.com",
+    "developerconnect.googleapis.com",
     "appengine.googleapis.com",
   "secretmanager.googleapis.com"]
 }
