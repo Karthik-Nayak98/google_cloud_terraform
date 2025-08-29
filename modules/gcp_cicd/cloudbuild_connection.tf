@@ -32,12 +32,16 @@ resource "google_secret_manager_secret_version" "github_token_secret_version" {
 
 resource "google_project_service_identity" "devconnect_p4sa" {
   provider = google-beta
-  service = "developerconnect.googleapis.com"
+  service  = "developerconnect.googleapis.com"
 }
 
 data "google_iam_policy" "p4sa_secretAccessor" {
   binding {
-    role = "roles/secretmanager.secretAccessor"
+    role    = "roles/secretmanager.secretAccessor"
+    members = [google_project_service_identity.devconnect_p4sa.member]
+  }
+  binding {
+    role    = "roles/developerconnect.admin"
     members = [google_project_service_identity.devconnect_p4sa.member]
   }
 }
