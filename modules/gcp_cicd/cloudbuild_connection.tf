@@ -30,12 +30,15 @@ resource "google_secret_manager_secret_version" "github_token_secret_version" {
 #   policy_data = data.google_iam_policy.p4sa-secretAccessor.policy_data
 # }
 
+resource "google_project_service_identity" "devconnect_p4sa" {
+  provider = google-beta
+  service = "developerconnect.googleapis.com"
+}
+
 data "google_iam_policy" "p4sa_secretAccessor" {
   binding {
     role = "roles/secretmanager.secretAccessor"
-    members = [
-      "serviceAccount:service-${var.project_number}@gcp-sa-developerconnect.iam.gserviceaccount.com",
-    ]
+    members = [google_project_service_identity.devconnect_p4sa.member]
   }
 }
 
