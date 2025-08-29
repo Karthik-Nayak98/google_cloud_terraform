@@ -30,33 +30,30 @@ resource "google_secret_manager_secret_version" "github_token_secret_version" {
 #   policy_data = data.google_iam_policy.p4sa-secretAccessor.policy_data
 # }
 
-
-resource "google_project_service_identity" "devconnect_p4sa" {
-  service = "developerconnect.googleapis.com"
-}
-
 data "google_iam_policy" "p4sa_secretAccessor" {
   binding {
     role = "roles/secretmanager.secretAccessor"
-    members = [google_project_service_identity.devconnect_p4sa.member]
+    members = [
+      "serviceAccount:service-${var.project_number}@gcp-sa-developerconnect.iam.gserviceaccount.com",
+    ]
   }
 }
 
 resource "google_secret_manager_secret_iam_policy" "policy" {
-  project = var.project_name
-  secret_id = google_secret_manager_secret.github_token_secret.secret_id
+  project     = var.project_name
+  secret_id   = google_secret_manager_secret.github_token_secret.secret_id
   policy_data = data.google_iam_policy.p4sa_secretAccessor.policy_data
 }
 
 
 resource "google_developer_connect_connection" "github_repo_connection" {
-  provider = google-beta
-  project = var.project_name
-  location = var.region 
+  provider      = google-beta
+  project       = var.project_name
+  location      = var.region
   connection_id = "github-developrer-connection"
 
   github_config {
-    github_app = "DEVELOPER_CONNECT"
+    github_app          = "DEVELOPER_CONNECT"
     app_installation_id = var.app_installation_id
     authorizer_credential {
       oauth_token_secret_version = google_secret_manager_secret_version.github_token_secret_version.id
