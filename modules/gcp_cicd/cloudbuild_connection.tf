@@ -40,10 +40,6 @@ data "google_iam_policy" "p4sa_secretAccessor" {
     role    = "roles/secretmanager.secretAccessor"
     members = [google_project_service_identity.devconnect_p4sa.member]
   }
-  binding {
-    role    = "roles/developerconnect.admin"
-    members = [google_project_service_identity.devconnect_p4sa.member]
-  }
 }
 
 resource "google_secret_manager_secret_iam_policy" "policy" {
