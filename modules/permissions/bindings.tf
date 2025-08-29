@@ -18,6 +18,7 @@ module "projects_iam_bindings" {
     "roles/developerconnect.admin" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
+      "serviceAccount:${var.terraform_service_account}",
     ]
   }
 
