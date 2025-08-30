@@ -31,8 +31,8 @@ resource "google_developer_connect_connection" "github_repo_connection" {
   github_config {
     github_app          = "DEVELOPER_CONNECT"
     app_installation_id = var.app_installation_id
-    authorizer_credential {
-      oauth_token_secret_version = google_secret_manager_secret_version.github-token-secret-version.id
-    }
+    # authorizer_credential {
+    #   oauth_token_secret_version = google_secret_manager_secret_version.github-token-secret-version.id
+    # }
   }
 }
