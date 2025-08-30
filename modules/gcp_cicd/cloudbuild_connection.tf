@@ -35,25 +35,23 @@ resource "google_project_service_identity" "devconnect_p4sa" {
   service  = "developerconnect.googleapis.com"
 }
 
-data "google_iam_policy" "p4sa_secretAccessor" {
-  binding {
-    role    = "roles/secretmanager.secretAccessor"
-    members = [google_project_service_identity.devconnect_p4sa.member]
-  }
-}
 
-resource "google_secret_manager_secret_iam_policy" "policy" {
-  project     = var.project_name
-  secret_id   = google_secret_manager_secret.github_token_secret.secret_id
-  policy_data = data.google_iam_policy.p4sa_secretAccessor.policy_data
+# resource "google_secret_manager_secret_iam_policy" "policy" {
+#   project     = var.project_name
+#   secret_id   = google_secret_manager_secret.github_token_secret.secret_id
+#   policy_data = data.google_iam_policy.p4sa_secretAccessor.policy_data
+# }
+resource "google_secret_manager_secret_iam_member" "p4sa_secret_accessor" {
+  secret_id = google_secret_manager_secret.github_token.id
+  role      = "roles/secretmanager.secretAccessor"
+  member    = google_project_service_identity.devconnect_p4sa.member
 }
-
 
 resource "google_developer_connect_connection" "github_repo_connection" {
   provider      = google-beta
   project       = var.project_name
   location      = var.region
-  connection_id = "github-developrer-connection"
+  connection_id = "github-developer-connection"
 
   github_config {
     github_app          = "DEVELOPER_CONNECT"
