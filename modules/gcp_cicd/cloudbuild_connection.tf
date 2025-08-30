@@ -42,7 +42,7 @@ resource "google_project_service_identity" "devconnect_p4sa" {
 #   policy_data = data.google_iam_policy.p4sa_secretAccessor.policy_data
 # }
 resource "google_secret_manager_secret_iam_member" "p4sa_secret_accessor" {
-  secret_id = google_secret_manager_secret.github_token.id
+  secret_id = google_secret_manager_secret.github_token_secret_version.id
   role      = "roles/secretmanager.secretAccessor"
   member    = google_project_service_identity.devconnect_p4sa.member
 }
@@ -61,7 +61,7 @@ resource "google_developer_connect_connection" "github_repo_connection" {
     }
   }
 
-  depends_on = [var.project_iam_bindings, google_secret_manager_secret_iam_policy.policy]
+  depends_on = [var.project_iam_bindings]
 }
 
 # resource "google_cloudbuildv2_connection" "github_repo_connection" {
