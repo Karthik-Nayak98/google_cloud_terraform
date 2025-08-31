@@ -3,10 +3,8 @@ resource "google_cloudbuild_trigger" "ghe-trigger" {
   location = var.region
   project  = var.project_name
 
-
-  github {
-    owner = var.github_owner
-    name  = var.github_repository
+  repository_event_config {
+    repository = google_cloudbuildv2_repository.github_devops_repo.id
     push {
       branch = "^main$"
     }
