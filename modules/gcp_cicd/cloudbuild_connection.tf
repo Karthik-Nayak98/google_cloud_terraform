@@ -38,5 +38,5 @@ resource "google_cloudbuildv2_connection" "github_repo_connection" {
     }
   }
 
-  depends_on = [var.project_iam_bindings, google_secret_manager_secret_version.githubpat-secret-secret-version]
+  depends_on = [var.project_iam_bindings, google_secret_manager_secret_version.github-token-secret-version]
 }
