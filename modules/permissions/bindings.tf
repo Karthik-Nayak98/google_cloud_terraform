@@ -15,7 +15,6 @@ module "projects_iam_bindings" {
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
       "serviceAccount:service-${var.project_number}@gcp-sa-devconnect.iam.gserviceaccount.com"
-
     ],
     "roles/developerconnect.admin" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
