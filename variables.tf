@@ -55,6 +55,7 @@ variable "gcp_services" {
     "cloudbuild.googleapis.com",
     "developerconnect.googleapis.com",
     "appengine.googleapis.com",
+    "container.googleapis.com",
   "secretmanager.googleapis.com"]
 }
 
