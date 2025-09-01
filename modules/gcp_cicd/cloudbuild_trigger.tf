@@ -13,6 +13,13 @@ resource "google_cloudbuild_trigger" "ghe-trigger" {
 
   filename = "cloudbuild.yaml"
 
-  # depends_on = [var.project_iam_bindings, google_cloudbuildv2_connection.github_repo_connection]
-  depends_on = [var.project_iam_bindings, google_cloudbuildv2_connection.github_repo_connection]
+  substitutions = {
+    _PROJECT_ID  = var.project_name
+    _REGION      = var.region
+    _REPO_NAME   = google_cloudbuildv2_repository.github_devops_repo.name
+    _IMAGE_NAME  = "frontend-backend"
+    _ARTIFACTORY = google_artifact_registry_repository.frontend_backend_artifact.name
+  }
+
+  depends_on = [var.project_iam_bindings, google_cloudbuildv2_connection.github_repo_connection, google_artifact_registry_repository.frontend_backend_artifact]
 }
