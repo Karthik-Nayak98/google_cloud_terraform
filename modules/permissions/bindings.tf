@@ -45,7 +45,12 @@ module "projects_iam_bindings" {
     ],
     "roles/artifactregistry.admin" = [
       "serviceAccount:${var.terraform_service_account}",
+      "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
+    ],
+    "roles/artifactregistry.reader" = [
+      "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
     ]
+
   }
 
   depends_on = [google_service_account.cloudbuild_service_account]
