@@ -42,6 +42,9 @@ module "projects_iam_bindings" {
     ],
     "roles/iam.serviceAccountUser" = [
       "serviceAccount:${var.terraform_service_account}",
+    ],
+    "roles/artifactregistry.admin" = [
+      "serviceAccount:${var.terraform_service_account}",
     ]
   }
 
