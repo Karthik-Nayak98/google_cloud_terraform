@@ -33,6 +33,15 @@ module "projects_iam_bindings" {
     "roles/iam.serviceAccountUser" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:${var.terraform_service_account}",
+    ],
+    "roles/container.admin" = [
+      "serviceAccount:${var.terraform_service_account}",
+    ],
+    "roles/compute.networkAdmin" = [
+      "serviceAccount:${var.terraform_service_account}",
+    ],
+    "roles/iam.serviceAccountUser" = [
+      "serviceAccount:${var.terraform_service_account}",
     ]
   }
 
