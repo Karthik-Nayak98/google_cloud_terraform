@@ -49,6 +49,9 @@ module "projects_iam_bindings" {
     ],
     "roles/artifactregistry.reader" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
+    ],
+    "roles/logging.logWriter" = [
+      "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
     ]
 
   }
