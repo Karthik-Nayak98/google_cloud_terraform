@@ -52,8 +52,10 @@ module "projects_iam_bindings" {
     ],
     "roles/logging.logWriter" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
+    ],
+    "roles/serviceusage.serviceUsageConsumer" = [
+      "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
     ]
-
   }
 
   depends_on = [google_service_account.cloudbuild_service_account]
