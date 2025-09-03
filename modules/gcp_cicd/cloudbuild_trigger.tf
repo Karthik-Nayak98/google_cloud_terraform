@@ -14,9 +14,6 @@ resource "google_cloudbuild_trigger" "ghe-trigger" {
   filename = "cloudbuild.yaml"
 
   substitutions = {
-    _PROJECT_ID  = var.project_name
-    _PROJECT_NUMBER = var.project_number
-    _REGION      = var.region
     _REPO_NAME   = google_cloudbuildv2_repository.github_devops_repo.name
     _IMAGE_NAME  = "frontend-backend"
     _ARTIFACTORY = google_artifact_registry_repository.frontend_backend_artifact.name
