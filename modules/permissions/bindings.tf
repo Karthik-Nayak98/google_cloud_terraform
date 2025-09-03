@@ -16,10 +16,9 @@ module "projects_iam_bindings" {
       "serviceAccount:${var.terraform_service_account}",
       "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
     ],
-    "roles/cloudbuild.builds.admin" = [
+    "roles/cloudbuild.builds.builder" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:${var.terraform_service_account}",
-      "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
     ],
     "roles/cloudbuild.serviceAgent" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
