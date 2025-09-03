@@ -6,7 +6,7 @@ resource "google_cloudbuild_trigger" "ghe-trigger" {
   repository_event_config {
     repository = google_cloudbuildv2_repository.github_devops_repo.id
     push {
-      branch = "main"
+      branch = "^main$"
     }
   }
   service_account = var.cloudbuild_sa
