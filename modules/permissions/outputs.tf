@@ -11,5 +11,5 @@ output "iam_binding" {
 
 output "cloudbuild_sa" {
   description = "Service account for the cloud build"
-  value       = google_service_account.cloudbuild_service_account.name
+  value       = google_service_account.cloudbuild_service_account.email
 }

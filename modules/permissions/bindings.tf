@@ -49,9 +49,6 @@ module "projects_iam_bindings" {
     "roles/compute.networkAdmin" = [
       "serviceAccount:${var.terraform_service_account}",
     ],
-    "roles/iam.serviceAccountUser" = [
-      "serviceAccount:${var.terraform_service_account}",
-    ],
     "roles/artifactregistry.admin" = [
       "serviceAccount:${var.terraform_service_account}",
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
