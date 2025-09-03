@@ -15,21 +15,24 @@ module "projects_iam_bindings" {
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:${var.terraform_service_account}",
       "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
+      "serviceAccount:${var.project_number}@cloudbuild.iam.gserviceaccount.com"
     ],
     "roles/cloudbuild.builds.builder" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:${var.terraform_service_account}",
       "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
+      "serviceAccount:${var.project_number}@cloudbuild.iam.gserviceaccount.com"
     ],
     "roles/cloudbuild.serviceAgent" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:${var.terraform_service_account}",
       "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
+      "serviceAccount:${var.project_number}@cloudbuild.iam.gserviceaccount.com"
     ]
     "roles/secretmanager.secretAccessor" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
-      "serviceAccount:service-${var.project_number}@gcp-sa-devconnect.iam.gserviceaccount.com"
+      "serviceAccount:service-${var.project_number}@gcp-sa-devconnect.iam.gserviceaccount.com",
     ],
     "roles/developerconnect.admin" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
@@ -63,10 +66,12 @@ module "projects_iam_bindings" {
     "roles/logging.logWriter" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
+      "serviceAccount:${var.project_number}@cloudbuild.iam.gserviceaccount.com"
     ],
     "roles/serviceusage.serviceUsageConsumer" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
+      "serviceAccount:${var.project_number}@cloudbuild.iam.gserviceaccount.com"
     ]
   }
 
