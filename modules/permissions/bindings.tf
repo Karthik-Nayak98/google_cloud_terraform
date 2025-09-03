@@ -19,6 +19,7 @@ module "projects_iam_bindings" {
     "roles/cloudbuild.builds.builder" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:${var.terraform_service_account}",
+      "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
     ],
     "roles/cloudbuild.serviceAgent" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
@@ -43,6 +44,7 @@ module "projects_iam_bindings" {
     "roles/container.admin" = [
       "serviceAccount:${var.terraform_service_account}",
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
+      "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
     ],
     "roles/compute.networkAdmin" = [
       "serviceAccount:${var.terraform_service_account}",
@@ -53,12 +55,14 @@ module "projects_iam_bindings" {
     "roles/artifactregistry.admin" = [
       "serviceAccount:${var.terraform_service_account}",
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
+      "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
     ],
     "roles/artifactregistry.reader" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
     ],
     "roles/logging.logWriter" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
+      "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
     ],
     "roles/serviceusage.serviceUsageConsumer" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
