@@ -38,6 +38,7 @@ module "projects_iam_bindings" {
     "roles/iam.serviceAccountUser" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:${var.terraform_service_account}",
+      "serviceAccount:service-${var.project_number}@gcp-sa-devconnect.iam.gserviceaccount.com"
     ],
     "roles/container.admin" = [
       "serviceAccount:${var.terraform_service_account}",
