@@ -4,5 +4,5 @@ resource "google_cloudbuildv2_repository" "github_devops_repo" {
   location          = var.region
   name              = var.github_repository
   parent_connection = google_cloudbuildv2_connection.github_repo_connection.id
-  remote_uri        = var.github_repository_url
+  remote_uri        = "https://github.com/${var.github_owner}/${var.github_repository_url}.git"
 }
