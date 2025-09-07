@@ -19,13 +19,7 @@ variable "github_repository" {
 variable "github_owner" {
   type        = string
   description = "Owner of the github repository"
-  default     = ""
-}
-
-variable "github_repository_url" {
-  type        = string
-  description = "URL of the github repository to clone"
-  default     = "https://github.com/Karthik-Nayak98/frontend-backend-devops.git"
+  default     = "Karthik-Nayak98"
 }
 
 variable "gitpat_secret" {

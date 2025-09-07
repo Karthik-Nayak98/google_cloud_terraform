@@ -19,10 +19,6 @@ variable "github_owner" {
   default     = "Karthik-Nayak98"
 }
 
-variable "github_repository_url" {
-  type        = string
-  description = "URL of the github repository to clone"
-}
 
 variable "gitpat_secret" {
   type        = string
