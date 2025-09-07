@@ -9,7 +9,7 @@ resource "google_cloudbuild_trigger" "ghe-trigger" {
       branch = "main"
     }
   }
-  # service_account = var.cloudbuild_sa
+  service_account = var.cloudbuild_sa
 
   filename = "cloudbuild.yaml"
 
