@@ -50,10 +50,37 @@ variable "gcp_services" {
     "developerconnect.googleapis.com",
     "appengine.googleapis.com",
     "container.googleapis.com",
-  "secretmanager.googleapis.com"]
+    "secretmanager.googleapis.com",
+    "compute.googleapis.com"
+  ]
 }
 
-# variable "cloudbuild_sa" {
-#   type        = string
-#   description = "Cloudbuild service account"
-# }
+variable "subnet_cidr" {
+  description = "value of the subnet cidr"
+  type        = string
+}
+
+variable "pods_cidr" {
+  description = "value of the pods cidr"
+  type        = string
+}
+
+variable "services_cidr" {
+  description = "value of the services cidr"
+  type        = string
+}
+
+variable "cluster_name" {
+  type        = string
+  description = "Name of the GKE cluster"
+}
+
+variable "node_pool" {
+  type        = string
+  description = "Name of the GKE node pool"
+}
+
+variable "gke_version" {
+  type        = string
+  description = "Version of GKE cluster"
+}
