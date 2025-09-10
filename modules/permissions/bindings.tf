@@ -58,10 +58,12 @@ module "projects_iam_bindings" {
     ],
     "roles/artifactregistry.reader" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
+      "serviceAccount:${google_service_account.gke_service_account.email}",
     ],
     "roles/logging.logWriter" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
+      "serviceAccount:${google_service_account.gke_service_account.email}",
     ],
     "roles/serviceusage.serviceUsageConsumer" = [
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
