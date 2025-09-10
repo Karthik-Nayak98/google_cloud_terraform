@@ -13,3 +13,8 @@ output "cloudbuild_sa" {
   description = "Service account for the cloud build"
   value       = google_service_account.cloudbuild_service_account.id
 }
+
+output "gke_service_account" {
+  description = "Service account for the Google Kubernets Engine"
+  value       = google_service_account.gke_service_account.id
+}
