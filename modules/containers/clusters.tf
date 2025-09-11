@@ -51,5 +51,5 @@ resource "google_container_node_pool" "gke_node_pool" {
     max_node_count = 3
   }
 
-  depends_on = [ var.gke_service_account, google_container_cluster.gke_cluster ]
+  depends_on = [var.gke_service_account, google_container_cluster.gke_cluster]
 }
