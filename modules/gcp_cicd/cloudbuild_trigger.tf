@@ -17,6 +17,7 @@ resource "google_cloudbuild_trigger" "ghe-trigger" {
     _REPO_NAME   = google_cloudbuildv2_repository.github_devops_repo.name
     _IMAGE_NAME  = "frontend-backend"
     _ARTIFACTORY = google_artifact_registry_repository.frontend_backend_artifact.name
+    _GKE_CLUSTER = var.cluster_name
   }
 
   depends_on = [var.project_iam_bindings, google_cloudbuildv2_connection.github_repo_connection, google_artifact_registry_repository.frontend_backend_artifact]
