@@ -74,6 +74,7 @@ variable "services_cidr" {
 variable "cluster_name" {
   type        = string
   description = "Name of the GKE cluster"
+  default     = "gke-standard-cluster"
 }
 
 variable "node_pool" {

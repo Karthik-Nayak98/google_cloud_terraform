@@ -21,6 +21,7 @@ module "gcp_cicd" {
   cloudbuild_sa        = module.permissions.cloudbuild_sa
   project_iam_bindings = module.permissions.iam_binding
   project_number       = local.project_number
+  cluster_name         = var.cluster_name
 }
 
 module "containers" {

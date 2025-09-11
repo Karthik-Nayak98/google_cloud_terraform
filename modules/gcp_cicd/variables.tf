@@ -50,3 +50,8 @@ variable "project_number" {
   type        = string
   description = "The project number of the GCP project"
 }
+variable "cluster_name" {
+  type        = string
+  default     = "gke-standard-cluster"
+  description = "Name of the GKE cluster"
+}
