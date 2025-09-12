@@ -24,13 +24,13 @@ variable "subnet_cidr" {
 variable "pods_cidr" {
   description = "value of the pods cidr"
   type        = string
-  default     = "10.10.1.0/24"
+  default     = "10.10.0.32/27"  # Smaller ranges within /24
 }
 
 variable "services_cidr" {
   description = "value of the services cidr"
   type        = string
-  default     = "10.10.2.0/24"
+  default     = "10.10.0.64/27"  # Smaller ranges within /24
 }
 
 
