@@ -21,7 +21,7 @@ resource "google_container_cluster" "gke_cluster" {
 
   # Ensures no default SA is used
   node_config {
-    service_account = google_service_account.gke_nodes.email
+    service_account = var.gke_service_account
   }
 
   depends_on = [google_compute_firewall.internal_firewall, google_compute_firewall.allow_ssh]
