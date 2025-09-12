@@ -18,19 +18,19 @@ variable "gke_service_account" {
 variable "subnet_cidr" {
   description = "value of the subnet cidr"
   type        = string
-  default     = "10.10.0.0/26"
+  default     = "10.10.0.0/24"
 }
 
 variable "pods_cidr" {
   description = "value of the pods cidr"
   type        = string
-  default     = "10.10.0.0/27"
+  default     = "10.11.0.0/16"
 }
 
 variable "services_cidr" {
   description = "value of the services cidr"
   type        = string
-  default     = "10.10.0.32/27"
+  default     = "10.12.0.0/20"
 }
 
 
