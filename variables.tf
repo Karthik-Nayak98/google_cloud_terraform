@@ -59,16 +59,19 @@ variable "gcp_services" {
 variable "subnet_cidr" {
   description = "value of the subnet cidr"
   type        = string
+  default     = ""
 }
 
 variable "pods_cidr" {
   description = "value of the pods cidr"
   type        = string
+  default     = ""
 }
 
 variable "services_cidr" {
   description = "value of the services cidr"
   type        = string
+  default     = ""
 }
 
 variable "cluster_name" {
@@ -80,9 +83,11 @@ variable "cluster_name" {
 variable "node_pool" {
   type        = string
   description = "Name of the GKE node pool"
+  default     = ""
 }
 
 variable "gke_version" {
   type        = string
   description = "Version of GKE cluster"
+  default     = ""
 }
