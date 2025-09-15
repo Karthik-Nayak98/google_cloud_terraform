@@ -19,11 +19,6 @@ resource "google_container_cluster" "gke_cluster" {
     services_ipv4_cidr_block = var.services_cidr
   }
 
-  # Ensures no default SA is used
-  node_config {
-    service_account = var.gke_service_account
-  }
-
   depends_on = [google_compute_firewall.internal_firewall, google_compute_firewall.allow_ssh]
 }
 
