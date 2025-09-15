@@ -22,6 +22,7 @@ module "gcp_cicd" {
   project_iam_bindings = module.permissions.iam_binding
   project_number       = local.project_number
   cluster_name         = var.cluster_name
+  cluster_zone         = var.cluster_zone
 }
 
 module "containers" {

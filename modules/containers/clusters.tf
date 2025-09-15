@@ -1,6 +1,6 @@
 resource "google_container_cluster" "gke_cluster" {
   name     = var.cluster_name
-  location = "us-central1-f" # Use a specific zone instead of region due to quotas.
+  location = var.cluster_zone
 
   network             = google_compute_network.gke_network.id
   subnetwork          = google_compute_subnetwork.gke_subnet.id
@@ -14,7 +14,7 @@ resource "google_container_cluster" "gke_cluster" {
   initial_node_count       = 2 # Create a 2 node cluster
 
   ip_allocation_policy {
-    cluster_secondary_range_name = "pods"
+    cluster_secondary_range_name  = "pods"
     services_secondary_range_name = "services"
   }
 
@@ -23,7 +23,7 @@ resource "google_container_cluster" "gke_cluster" {
 
 resource "google_container_node_pool" "gke_node_pool" {
   name       = var.node_pool
-  location   = "us-central1-f"
+  location   = var.cluster_zone
   project    = var.project_name
   cluster    = google_container_cluster.gke_cluster.name
   version    = var.gke_version

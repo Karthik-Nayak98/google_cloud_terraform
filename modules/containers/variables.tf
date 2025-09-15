@@ -55,3 +55,9 @@ variable "project_iam_bindings" {
   type        = any
   description = "IAM bindings applied to the project"
 }
+
+variable "cluster_zone" {
+  type        = string
+  description = "Zone for the GKE cluster"
+  default     = "us-central1-f"
+}

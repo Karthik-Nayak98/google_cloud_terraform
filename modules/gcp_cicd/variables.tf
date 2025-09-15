@@ -55,3 +55,9 @@ variable "cluster_name" {
   default     = "gke-standard-cluster"
   description = "Name of the GKE cluster"
 }
+
+variable "cluster_zone" {
+  type        = string
+  description = "Zone for the GKE cluster"
+  default     = "us-central1-f"
+}

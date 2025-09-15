@@ -91,3 +91,9 @@ variable "gke_version" {
   description = "Version of GKE cluster"
   default     = ""
 }
+
+variable "cluster_zone" {
+  type        = string
+  description = "Zone for the GKE cluster"
+  default     = "us-central1-f"
+}
