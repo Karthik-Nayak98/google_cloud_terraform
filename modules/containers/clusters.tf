@@ -14,8 +14,8 @@ resource "google_container_cluster" "gke_cluster" {
   initial_node_count       = 2 # Create a 2 node cluster
 
   ip_allocation_policy {
-    cluster_ipv4_cidr_block  = var.pods_cidr
-    services_ipv4_cidr_block = var.services_cidr
+    cluster_secondary_range_name = "k8s-pods-range"
+    services_secondary_range_name = "k8s-services-range" 
   }
 
   depends_on = [google_compute_firewall.internal_firewall, google_compute_firewall.allow_ssh]
