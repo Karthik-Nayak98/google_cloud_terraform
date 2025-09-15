@@ -1,7 +1,6 @@
 resource "google_container_cluster" "gke_cluster" {
   name     = var.cluster_name
-  location = var.region
-
+  location = "us-central1-f" # Use a specific zone instead of region due to quotas.
 
   network             = google_compute_network.gke_network.id
   subnetwork          = google_compute_subnetwork.gke_subnet.id
@@ -24,7 +23,7 @@ resource "google_container_cluster" "gke_cluster" {
 
 resource "google_container_node_pool" "gke_node_pool" {
   name       = var.node_pool
-  location   = var.region
+  location   = "us-central1-f"
   project    = var.project_name
   cluster    = google_container_cluster.gke_cluster.name
   version    = var.gke_version
