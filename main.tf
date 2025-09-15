@@ -25,13 +25,14 @@ module "gcp_cicd" {
 }
 
 module "containers" {
-  source              = "./modules/containers"
-  project_name        = var.project_name
-  region              = var.region
-  gke_service_account = module.permissions.gke_service_account
-  subnet_cidr         = var.subnet_cidr
-  pods_cidr           = var.pods_cidr
-  node_pool           = var.node_pool
-  cluster_name        = var.cluster_name
-  gke_version         = var.gke_version
+  source               = "./modules/containers"
+  project_name         = var.project_name
+  region               = var.region
+  gke_service_account  = module.permissions.gke_service_account
+  subnet_cidr          = var.subnet_cidr
+  pods_cidr            = var.pods_cidr
+  node_pool            = var.node_pool
+  cluster_name         = var.cluster_name
+  gke_version          = var.gke_version
+  project_iam_bindings = module.permissions.iam_binding
 }

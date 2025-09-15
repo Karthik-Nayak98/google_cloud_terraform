@@ -52,6 +52,8 @@ resource "google_compute_firewall" "internal_firewall" {
   ]
 
   direction = "INGRESS"
+
+  depends_on = [var.project_iam_bindings]
 }
 
 # 2. Allow SSH for debugging (optional but recommended)
@@ -68,6 +70,8 @@ resource "google_compute_firewall" "allow_ssh" {
   source_ranges = ["0.0.0.0/0"] # Restrict this to your IP in production
 
   direction = "INGRESS"
+
+  depends_on = [var.project_iam_bindings]
 }
 
 # 3. Allow HTTP/HTTPS traffic (for web applications)
@@ -84,5 +88,7 @@ resource "google_compute_firewall" "allow_web" {
   source_ranges = ["0.0.0.0/0"]
 
   direction = "INGRESS"
+
+  depends_on = [var.project_iam_bindings]
 }
 

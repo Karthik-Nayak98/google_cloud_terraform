@@ -50,3 +50,8 @@ variable "gke_version" {
   default     = "1.33.3-gke.1136000"
   description = "Version of GKE cluster"
 }
+
+variable "project_iam_bindings" {
+  type        = any
+  description = "IAM bindings applied to the project"
+}
