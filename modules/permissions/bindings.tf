@@ -74,7 +74,7 @@ module "projects_iam_bindings" {
       "serviceAccount:${google_service_account.cloudbuild_service_account.email}",
       "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com",
     ],
-    "roles/compute.firewallAdmin" = [
+    "roles/compute.securityAdmin" = [
       "serviceAccount:${var.terraform_service_account}",
     ]
   }
