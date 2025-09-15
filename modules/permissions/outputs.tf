@@ -16,5 +16,5 @@ output "cloudbuild_sa" {
 
 output "gke_service_account" {
   description = "Service account for the Google Kubernets Engine"
-  value       = google_service_account.gke_service_account.id
+  value       = google_service_account.gke_service_account.email
 }
