@@ -15,8 +15,8 @@ resource "google_container_cluster" "gke_cluster" {
   initial_node_count       = 2 # Create a 2 node cluster
 
   ip_allocation_policy {
-    cluster_secondary_range_name  = var.pods_cidr
-    services_secondary_range_name = var.services_cidr
+    cluster_ipv4_cidr_block  = var.pods_cidr
+    services_ipv4_cidr_block = var.services_cidr
   }
 
   # Ensures no default SA is used
