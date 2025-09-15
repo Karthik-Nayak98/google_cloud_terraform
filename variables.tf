@@ -59,19 +59,19 @@ variable "gcp_services" {
 variable "subnet_cidr" {
   description = "value of the subnet cidr"
   type        = string
-  default     = ""
+  default     = "10.51.0.0/20"
 }
 
 variable "pods_cidr" {
   description = "value of the pods cidr"
   type        = string
-  default     = ""
+  default     = "10.53.0.0/20"
 }
 
 variable "services_cidr" {
   description = "value of the services cidr"
   type        = string
-  default     = ""
+  default     = "10.52.0.0/20"
 }
 
 variable "cluster_name" {
