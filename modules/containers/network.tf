@@ -92,3 +92,26 @@ resource "google_compute_firewall" "allow_web" {
   depends_on = [var.project_iam_bindings]
 }
 
+
+
+# 4. Allow GKE health checks (important for load balancers)
+resource "google_compute_firewall" "gke_health_checks" {
+  name        = "${var.cluster_name}-allow-health-checks"
+  network     = google_compute_network.gke_network.name
+  description = "Allow GKE health checks from Google's load balancer ranges"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["3000", "80", "443"] # Include your app port (3000)
+  }
+
+  # GCP health check ranges - CRITICAL for load balancers
+  source_ranges = [
+    "130.211.0.0/22",
+    "35.191.0.0/16",
+    "209.85.152.0/22",
+    "209.85.204.0/22"
+  ]
+
+  direction = "INGRESS"
+}
