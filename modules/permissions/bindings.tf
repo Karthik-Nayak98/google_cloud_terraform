@@ -76,6 +76,9 @@ module "projects_iam_bindings" {
     ],
     "roles/compute.securityAdmin" = [
       "serviceAccount:${var.terraform_service_account}",
+    ], 
+    "roles/container.defaultNodeServiceAccount": [
+      "serviceAccount:${google_service_account.gke_service_account.email}",
     ]
   }
 
